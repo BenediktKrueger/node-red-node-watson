@@ -15,18 +15,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/watson-developer-cloud/node-red-node-watson"
+    "url": "https://github.com/BenediktKrueger/node-red-node-watson"
   },
   "license": "Apache-2.0",
   "keywords": [
     "node-red",
     "bluemix",
     "watson"
-  ],
-  "contributors": [ {
-      "name": "Soheel Chughtai",
-      "email": "soheel_chughtai@uk.ibm.com"
-    }
   ],
   "node-red": {
     "nodes": {
