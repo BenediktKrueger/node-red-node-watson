@@ -1,5 +1,5 @@
 {
-  "name": "node-red-node-watson",
+  "name": "node-red-node-watson-ben-nodes",
   "version": "0.4.9",
   "description": "A collection of Node-RED nodes for IBM Watson services",
   "dependencies": {
