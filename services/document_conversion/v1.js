@@ -56,8 +56,8 @@ module.exports = function(RED) {
 
     this.doCall = function(msg) {
       var document_conversion = watson.document_conversion({
-        username: node.username,
-        password: node.password,
+        username: msg.username || node.username,
+        password: msg.password || node.password,
         version: 'v1',
         version_date: '2015-12-01'
       });
