@@ -72,8 +72,8 @@ module.exports = function (RED) {
 			 return;
       }
 
-      var username = sUsername || this.credentials.username;
-      var password = sPassword || this.credentials.password;
+      var username = msg.username || sUsername || this.credentials.username;
+      var password = msg.password || sPassword || this.credentials.password;
       this.status({});  
 			
       if (!username || !password) {
