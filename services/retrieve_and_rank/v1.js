@@ -28,8 +28,8 @@ module.exports = function (RED) {
   var service = cfenv.getAppEnv().getServiceCreds(/retrieve and rank/i);
 
   if (service) {
-    username = msg.username || service.username;
-    password = msg.password || service.password;
+    username = service.username;
+    password = service.password;
   }
 
   RED.httpAdmin.get('/watson-retrieve-and-rank/vcap', function (req, res) {
