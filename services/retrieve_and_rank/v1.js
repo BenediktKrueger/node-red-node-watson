@@ -38,8 +38,8 @@ module.exports = function (RED) {
 
   function serviceCredentialsConfigurationNode(config) {
     RED.nodes.createNode(this,config);
-    this.username = msg.username || config.username;
-    this.password = msg.password || config.password;
+    this.username = config.username;
+    this.password = config.password;
   }
 
   function createRankerNode(config) {
@@ -484,8 +484,8 @@ module.exports = function (RED) {
 
     //Check credentials
     this.credentials = RED.nodes.getNode(config.servicecreds);
-    username = username || this.credentials.username;
-    password = password || this.credentials.password;
+    username = msg.username || username || this.credentials.username;
+    password = msg.password || password || this.credentials.password;
 
     if (!username || !password) {
       message = 'Missing Concept Insights service credentials';
