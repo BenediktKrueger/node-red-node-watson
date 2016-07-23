@@ -39,7 +39,7 @@ module.exports = function (RED) {
   function serviceCredentialsConfigurationNode(config) {
     RED.nodes.createNode(this,config);
     this.username = msg.username || config.username;
-    this.password = msg.username || config.password;
+    this.password = msg.password || config.password;
   }
 
   function createRankerNode(config) {
