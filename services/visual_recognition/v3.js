@@ -82,7 +82,7 @@ module.exports = function (RED) {
   function verifyServiceCredentials(node, msg) {
     // If it is present the newly provided user entered key
     // takes precedence over the existing one.
-    node.apikey = sAPIKey || node.credentials.apikey;
+    node.apikey = msg.key || sAPIKey || node.credentials.apikey;
     if (!node.apikey) {
       node.status({fill:'red', shape:'ring', text:'missing credentials'});
       var message ='Missing Watson Visual Recognition API service credentials';
