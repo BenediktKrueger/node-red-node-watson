@@ -15,7 +15,7 @@ module.exports = function(RED) {
     if (err)
     fail = err;
     else
-    def = response;
+    def = JSON.stringify(response, null, 2);
     });
     
     function LowerCaseNode(config) {
