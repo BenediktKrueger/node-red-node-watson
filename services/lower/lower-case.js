@@ -10,11 +10,18 @@ module.exports = function(RED) {
      url: 'http://www-03.ibm.com/press/us/en/pressrelease/49384.wss'
     };
     
+    alchemy_language.entities(parameters, function (err, response) {
+    if (err)
+    var fail = err;
+    else
+    var def = response;
+    });
+    
     function LowerCaseNode(config) {
         RED.nodes.createNode(this,config);
         var node = this;
         this.on('input', function(msg) {
-            msg.payload = msg.payload.toLowerCase();
+            msg.payload = def;
             node.send(msg);
         });
     }
