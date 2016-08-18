@@ -4,10 +4,8 @@ module.exports = function(RED) {
         RED.nodes.createNode(this,config);
         var node = this;
     
-    this.on('input', function(msg) {
-            node.apikey = 'b242de56e40b4d1393f99f77b3e231d7f2314a98';
-        });
-    
+    node.apikey = 'b242de56e40b4d1393f99f77b3e231d7f2314a98';
+    node.test = msg.payload;
     
     var watson = require('watson-developer-cloud');
     var alchemy_language = watson.alchemy_language({
@@ -31,7 +29,7 @@ module.exports = function(RED) {
     
         this.on('input', function(msg) {
             msg.payload = def + "---" + fail;
-            msg.test = msg.key;
+            msg.test = node.test;
             node.send(msg);
         });
     }
