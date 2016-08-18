@@ -21,7 +21,6 @@ module.exports = function(RED) {
     var alchemy_language = watson.alchemy_language({
     api_key: 'b242de56e40b4d1393f99f77b3e231d7f2314a98'    
     });
-    };
     
     alchemy_language.entities(parameters, function (err, response) {
     if (err)
@@ -33,7 +32,8 @@ module.exports = function(RED) {
     msg.payload = def + "---" + fail;
     node.send(msg);
     
-    }
+    };
+    };
     
     RED.nodes.registerType("lower-case",LowerCaseNode);
-}
+};
