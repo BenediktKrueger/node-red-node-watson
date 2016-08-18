@@ -4,7 +4,10 @@ module.exports = function(RED) {
         RED.nodes.createNode(this,config);
         var node = this;
     
-    node.apikey = 'b242de56e40b4d1393f99f77b3e231d7f2314a98';
+    this.on('input', function(msg) {
+            node.apikey = 'b242de56e40b4d1393f99f77b3e231d7f2314a98';
+        });
+    
     
     var watson = require('watson-developer-cloud');
     var alchemy_language = watson.alchemy_language({
