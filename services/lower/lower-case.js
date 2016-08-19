@@ -1,14 +1,14 @@
 module.exports = function(RED) {
     
-
+    var input1 = 'test';
     
     function LowerCaseNode(config) {
     RED.nodes.createNode(this,config);
     //var globalContext = this.context().global;
-    
+    input1 = 'test1';
     this.on('input', function(msg) {
     var key = msg.key;
-    var input1 = 'test';
+    input1 = 'test';
     });
     
     var watson = require('watson-developer-cloud');
