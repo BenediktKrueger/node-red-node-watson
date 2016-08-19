@@ -6,16 +6,9 @@ module.exports = function(RED) {
     RED.nodes.createNode(this,config);
     //var globalContext = this.context().global;
     
-    this.on('input', function(msg) {
-    var key = msg.key;
-    var input = msg.payload; 
-    
-    //globalContext.set("key", msg.key);
-    //globalContext.set("input", msg.payload);
-    
     var watson = require('watson-developer-cloud');
     var alchemy_language = watson.alchemy_language({
-    api_key: key    
+    api_key: 'b242de56e40b4d1393f99f77b3e231d7f2314a98'    
     });
     var def = "";
     var fail = "";
@@ -31,6 +24,15 @@ module.exports = function(RED) {
     else
     def = JSON.stringify(response, null, 2);
     });
+    
+    this.on('input', function(msg) {
+    var key = msg.key;
+    var input = msg.payload; 
+    
+    //globalContext.set("key", msg.key);
+    //globalContext.set("input", msg.payload);
+    
+    
 
     var neu = def + "---" + fail + "---" + key;
     
