@@ -13,12 +13,32 @@ module.exports = function(RED) {
     //globalContext.set("key", msg.key);
     //globalContext.set("input", msg.payload);
     
+    var watson = require('watson-developer-cloud');
+    var alchemy_language = watson.alchemy_language({
+    api_key: key    
+    });
+    var def = "";
+    var fail = "";
+
+    var parameters = {
+    /*url: 'http://www-03.ibm.com/press/us/en/pressrelease/49384.wss'*/
+    text: 'Now hes impersonating a presidential candidate. That, too, used to be fun. He played a wretched character who humiliated anyone who stood in his way: immigrants, women, Muslims, the disabled, veterans and his Republican rivals, who keeled over one by one -- "Little Marco," "Low-Energy Jeb," "Lyin Ted."'
+    };
+
+    alchemy_language.entities(parameters, function (err, response) {
+    if (err)
+    fail = err;
+    else
+    def = JSON.stringify(response, null, 2);
+    });
 
     
+    
+    msg = {payload: def},          
+    this.send(msg);
     });
     
-    msg = {payload: key},          
-    this.send(msg);
+
     
     
     
