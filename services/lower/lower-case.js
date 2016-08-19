@@ -13,12 +13,12 @@ module.exports = function(RED) {
     globalContext.set("key", msg.key);
     globalContext.set("input", msg.payload);
     
-    
+    msg.payload = globalContext.get("key"); + "---" + globalContext.get("input");
+    this.send(msg);
     
     });
     
-    msg.payload = globalContext.get("key"); + "---" + globalContext.get("input");
-    this.send(msg);
+
     
     
     
