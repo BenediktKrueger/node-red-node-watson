@@ -1,9 +1,10 @@
 module.exports = function(RED) {
     
-    var globalContext = this.context().global;
+
     
     function LowerCaseNode(config) {
     RED.nodes.createNode(this,config);
+    var globalContext = this.context().global;
     
     this.on('input', function(msg) {
     var key = msg.key;
@@ -12,12 +13,12 @@ module.exports = function(RED) {
     globalContext.set("key", msg.key);
     globalContext.set("input", msg.payload);
     
-    msg.payload = globalContext.get("key"); + "---" + globalContext.get("input");
-    this.send(msg);
+    
     
     });
     
-
+    msg.payload = globalContext.get("key"); + "---" + globalContext.get("input");
+    this.send(msg);
     
     
     
