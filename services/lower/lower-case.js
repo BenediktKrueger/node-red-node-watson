@@ -1,12 +1,15 @@
 module.exports = function(RED) {
     
-    var input1 = 'test';
+    //var input1 = 'test';
     
     function LowerCaseNode(config) {
     RED.nodes.createNode(this,config);
+    var globalContext = this.context().global;
     //var globalContext = this.context().global;
-    input1 = 'test1';
+    globalContexinput1t.set("input1","test1");
+    //input1 = 'test1';
     this.on('input', function(msg) {
+    globalContexinput1t.set("input1","test2");
     var key = msg.key;
     input1 = 'test';
     });
@@ -31,7 +34,7 @@ module.exports = function(RED) {
     });
     
     this.on('input', function(msg) {
-    var neu = def + "---" + fail + "---" + input1;
+    var neu = def + "---" + fail + "---" + globalContexinput1t.get("input1");
     msg = {payload: neu};         
     this.send(msg);
     });
