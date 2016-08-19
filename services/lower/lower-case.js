@@ -1,13 +1,9 @@
 module.exports = function(RED) {
     
     var watson = require('watson-developer-cloud');
-
-    var key = 'b242de56e40b4d1393f99f77b3e231d7f2314a98';
-    
     var alchemy_language = watson.alchemy_language({
-    api_key: key     
+    api_key: 'b242de56e40b4d1393f99f77b3e231d7f2314a98'    
     });
-    
     var def = "";
     var fail = "";
     
@@ -16,19 +12,18 @@ module.exports = function(RED) {
     text: 'Now hes impersonating a presidential candidate. That, too, used to be fun. He played a wretched character who humiliated anyone who stood in his way: immigrants, women, Muslims, the disabled, veterans and his Republican rivals, who keeled over one by one -- "Little Marco," "Low-Energy Jeb," "Lyin Ted."'
     };
     
+    alchemy_language.entities(parameters, function (err, response) {
+    if (err)
+    fail = err;
+    else
+    def = JSON.stringify(response, null, 2);
+    });
+    
     function LowerCaseNode(config) {
         RED.nodes.createNode(this,config);
         var node = this;
         this.on('input', function(msg) {
-            
-                alchemy_language.entities(parameters, function (err, response) {
-		 if (err)
-		  fail = err;
-		   else
-		  def = JSON.stringify(response, null, 2);
-		   });
-            
-            msg.test = key + "---" + msg.key + "---" + def;
+            msg.payload = def + "---" + fail;
             node.send(msg);
         });
     }
