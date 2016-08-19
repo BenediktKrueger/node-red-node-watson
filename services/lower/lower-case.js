@@ -6,6 +6,11 @@ module.exports = function(RED) {
     RED.nodes.createNode(this,config);
     //var globalContext = this.context().global;
     
+    this.on('input', function(msg) {
+    var key = msg.key;
+    var input1 = 'test';
+    });
+    
     var watson = require('watson-developer-cloud');
     var alchemy_language = watson.alchemy_language({
     api_key: 'b242de56e40b4d1393f99f77b3e231d7f2314a98'    
@@ -26,16 +31,7 @@ module.exports = function(RED) {
     });
     
     this.on('input', function(msg) {
-    var key = msg.key;
-    var input = msg.payload; 
-    
-    //globalContext.set("key", msg.key);
-    //globalContext.set("input", msg.payload);
-    
-    
-
-    var neu = def + "---" + fail + "---" + key;
-    
+    var neu = def + "---" + fail + "---" + input1;
     msg = {payload: neu};         
     this.send(msg);
     });
