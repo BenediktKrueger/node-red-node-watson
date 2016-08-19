@@ -32,9 +32,9 @@ module.exports = function(RED) {
     def = JSON.stringify(response, null, 2);
     });
 
+    var neu = def + "---" + fail + "---" + key;
     
-    
-    msg = {payload: def},          
+    msg = {payload: neu};         
     this.send(msg);
     });
     
