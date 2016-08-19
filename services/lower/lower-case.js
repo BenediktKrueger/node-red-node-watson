@@ -7,10 +7,12 @@ module.exports = function(RED) {
     var key = msg.key;
     var input = msg.payload; 
     
-    });
-    
     msg.payload = msg.key + "---" + msg.payload;
     this.send(msg);
+    
+    });
+    
+
     
     
     
