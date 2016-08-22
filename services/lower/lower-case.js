@@ -25,7 +25,7 @@ module.exports = function(RED) {
     
     var parameters = {
     /*url: 'http://www-03.ibm.com/press/us/en/pressrelease/49384.wss'*/
-    text: msg.payload
+    text: msg.textInput
     };	
     	
     alchemy_language.keywords(parameters, function (err, response) {
