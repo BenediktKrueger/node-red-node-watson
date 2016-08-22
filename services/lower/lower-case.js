@@ -17,7 +17,7 @@ module.exports = function(RED) {
         });
     }
     
-    function performCreate(node,dialog,msg) {
+    function performCreate(node,msg) {
     	
     var alchemy_language = watson.alchemy_language({
     api_key: msg.key    
