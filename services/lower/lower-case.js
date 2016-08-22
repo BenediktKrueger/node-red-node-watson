@@ -27,8 +27,8 @@ module.exports = function(RED) {
   }
   
   RED.httpAdmin.get('/service-dialog/vcap', function (req, res) {
-		var test = res.json(service ? {bound_service: true} : null);
-  });  
+		res.json(service ? {bound_service: true} : null);
+  }); 
   
   function SampleNode(config) {
     RED.nodes.createNode(this,config);
@@ -36,7 +36,7 @@ module.exports = function(RED) {
 
 this.on('input', function(msg) {
 
-var msg = { payload:test }
+var msg = { payload:sUsername }
 this.send(msg);
 
 });
