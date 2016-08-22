@@ -32,7 +32,8 @@ module.exports = function(RED) {
     if (err)
     fail = err;
     else
-    def = JSON.stringify(response, null, 2);
+    //def = JSON.stringify(response, null, 2);
+    def = response;
     });	
     	
     }	
