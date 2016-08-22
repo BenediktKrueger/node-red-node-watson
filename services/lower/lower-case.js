@@ -12,7 +12,7 @@ module.exports = function(RED) {
         	
             performCreate(node,msg);	
         	
-            msg.payload = def + "---" + fail;
+            msg.payload = def + "---" + msg.key;
             node.send(msg);
         });
     }
