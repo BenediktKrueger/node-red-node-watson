@@ -28,7 +28,7 @@ module.exports = function(RED) {
     text: msg.payload
     };	
     	
-    alchemy_language.entities(parameters, function (err, response) {
+    alchemy_language.keywords(parameters, function (err, response) {
     if (err)
     fail = err;
     else
